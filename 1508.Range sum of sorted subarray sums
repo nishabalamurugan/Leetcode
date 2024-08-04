@@ -1,0 +1,15 @@
+class Solution:
+    def rangeSum(self, nums: List[int], n: int, left: int, right: int) -> int:
+        res=[]
+        for i in range(len(nums)):
+            curr=nums[i]
+            res.append(curr)
+            for j in range(i+1,len(nums)):
+                #print(curr,nums[j])
+                curr+=nums[j]
+                #print(curr)                 
+                res.append(curr)
+        res=sorted(res)  
+        mod=10**9+7
+        #print(res) 
+        return sum(res[left-1:right])%mod
