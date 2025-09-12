@@ -1,0 +1,25 @@
+class Solution:
+    def sortVowels(self, s: str) -> str:
+        ascii=[]
+        vowfound=[]
+        reslist=list(s)
+        for i in s:
+            if(i in 'aeiouAEIOU'):
+                vowfound.append(i)
+                ascii.append(ord(i))
+        vowfound.sort()        
+        # for i in range(len(ascii)):
+        #     for j in range(i+1,len(ascii)):
+        #         if(ascii[i]>ascii[j]):
+        #             #swap 
+        #             ascii[i],ascii[j]=ascii[j],ascii[i]
+        #             vowfound[i],vowfound[j]=vowfound[j],vowfound[i]
+        ind=0
+        for i in range(len(reslist)):
+            if(reslist[i] in 'aeiouAEIOU'):
+                reslist[i]=vowfound[ind]
+                ind+=1
+        return "".join(reslist)
+
+        
+        
