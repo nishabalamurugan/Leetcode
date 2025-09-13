@@ -1,0 +1,22 @@
+class Solution:
+    def maxFreqSum(self, s: str) -> int:
+        vow='';cons=''
+        res=0
+        for i in s:
+            if i in 'aeiou':
+                vow+=i 
+            else:
+                cons+=i
+        a=0
+        for i in vow:
+            if(vow.count(i)>a):
+                a=vow.count(i)
+        print(a)
+        b=0
+        for i in cons:
+            if(cons.count(i)>b):
+                b=cons.count(i)
+        print(b)
+        return a+b
+            
+        
