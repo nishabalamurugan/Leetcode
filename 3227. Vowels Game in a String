@@ -1,0 +1,26 @@
+class Solution:
+    def doesAliceWin(self, s: str) -> bool:
+        vowcount=0
+        for i in s:
+            if(i in 'aeiouAEIOU'):
+                vowcount+=1
+        if(vowcount==0):
+            return False
+        maxi=0
+        turn=1
+        while(vowcount>0):
+            if(turn==1):
+                if(vowcount%2!=0):
+                    vowcount=0
+                    return True;
+                else:
+                    temp=vowcount-1
+                    vowcount-=temp 
+            else:
+                if(vowcount%2==0):
+                    vowcount=0 
+                else:
+                    temp=vowcount-1 
+                    vowcount-=temp
+        return False
+        
