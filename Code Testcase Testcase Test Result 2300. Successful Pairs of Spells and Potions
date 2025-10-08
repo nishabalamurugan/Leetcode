@@ -1,0 +1,13 @@
+from bisect import bisect_left
+
+class Solution:
+    def successfulPairs(self, spells: List[int], potions: List[int], success: int) -> List[int]:
+        res=[]
+        potions.sort()
+        for spell in spells:
+            need=(success+spell-1)//spell 
+            pos=bisect_left(potions,need)
+            res.append(len(potions)-pos)
+            #print(need)
+        return res
+        
