@@ -1,0 +1,14 @@
+class Solution:
+    def removeAnagrams(self, words: List[str]) -> List[str]:
+        res=[] 
+        ind=[0 for i in range(len(words))]
+        for i in range(1,len(words)):
+            print(i)
+            curr=list(words[i])
+            prev=list(words[i-1])
+            if(''.join(sorted(curr))==''.join(sorted(prev))):
+                #words.remove(words[i])
+                ind[i]=1
+            print(words)
+        print(ind)
+        return [words[i] for i in range(len(words)) if ind[i]==0]
