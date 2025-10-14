@@ -1,0 +1,15 @@
+class Solution:
+    def hasIncreasingSubarrays(self, nums: List[int], k: int) -> bool:
+        a=0 
+        b=k 
+        for i in range(len(nums)-k):
+            c=nums[a:b]
+            d=nums[b:b+k]
+            print(c,d,len(list(set(c)))==len(list(set(d))))
+            if(len(c)==len(d) and sorted(c)==c and sorted(d)==d and len(set(c))==len(c) and len(set(d))==len(d)):
+                return True
+            a+=1 
+            b+=1
+        return False
+    
+        
