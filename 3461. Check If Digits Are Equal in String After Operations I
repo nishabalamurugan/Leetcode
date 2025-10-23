@@ -1,0 +1,13 @@
+class Solution:
+    def hasSameDigits(self, s: str) -> bool:
+        temp=s
+        while(len(temp)>2):
+            templ=''
+            for i in range(len(temp)-1):
+                k=(int(temp[i])+int(temp[i+1]))%10
+                templ+=str(k)
+                #print(temp[i],temp[i+1],k)
+            temp=templ
+            print(templ)
+        return temp[0]==temp[1]
+        
