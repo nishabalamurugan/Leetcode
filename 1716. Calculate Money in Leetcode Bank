@@ -1,0 +1,16 @@
+class Solution:
+    def totalMoney(self, n: int) -> int:
+        st=1
+        val=0 
+        times=n//7
+        for j in range(times):
+            n-=7
+            val+=sum([i for i in range(st,st+7)])
+            st+=1 
+        print(n) 
+        if(n%7>0):
+            val+=sum([i for i in range(st,st+(n%7))])
+            #print(k)
+        return val
+
+        
