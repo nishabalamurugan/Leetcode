@@ -1,0 +1,7 @@
+import bisect
+class Solution:
+    def smallestNumber(self, n: int) -> int:
+        possible=[ int(i*str('1'),2) for i in range(1,11) ]
+        return possible[bisect.bisect_left(possible,n)]
+
+        
