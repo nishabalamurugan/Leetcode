@@ -1,0 +1,19 @@
+class Solution:
+    def minCost(self, colors: str, neededTime: List[int]) -> int:
+        res=0 
+        temp=[colors[0]]
+        val=[neededTime[0]]
+        for i in range(1,len(colors)):
+            if(colors[i]==temp[-1]):
+                mini=min(val[-1],neededTime[i])
+                res+=mini
+                maxi=max(val[-1],neededTime[i])
+                val.pop(-1)
+                val.append(maxi)
+            else:
+                temp.append(colors[i])
+                val.append(neededTime[i])
+            #print(temp,val)
+            print(res)
+        return res
+        
