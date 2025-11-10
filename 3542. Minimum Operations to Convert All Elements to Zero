@@ -1,0 +1,40 @@
+class Solution:
+    # caused TLE
+    # def findmin(self,lst):
+    #     mini=999999
+    #     for i in lst:
+    #         if i<mini and i!=0:
+    #             mini=i
+    #     return mini
+    # def minfromreverseind(self,lst,mini,ind):
+    #     res=ind
+    #     for i in range(ind+1,len(lst)):
+    #         if(lst[i]==mini) :
+    #             res=i
+    #         elif(lst[i]==0):
+    #             break;
+    #     return res 
+    # def minOperations(self, nums: List[int]) -> int:
+    #     count=0 
+    #     while(nums.count(0)!=len(nums)):
+    #         minind1=nums.index(self.findmin(nums))
+    #         minind2=self.minfromreverseind(nums,nums[minind1],minind1)
+    #         minfound=nums[minind1]
+    #         for i in range(minind1,minind2+1):
+    #             if(nums[i]==minfound):
+    #                 nums[i]=0
+    #         count+=1
+    #     return count
+    def minOperations(self, nums: List[int]) -> int:
+        stack=[0]*(len(nums)+1)
+        top=0
+        count=0 
+        for i in range(len(nums)):
+            while(stack[top]>nums[i]):
+                top-=1
+                count+=1 
+            if(stack[top]!=nums[i]):
+                top+=1
+                stack[top]=nums[i]
+
+        return count+top
