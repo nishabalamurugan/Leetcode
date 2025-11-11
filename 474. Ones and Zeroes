@@ -1,0 +1,22 @@
+class Solution:
+    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        dp={(0,0):0}
+        for i in strs:
+            onecount=i.count("1")
+            zerocount=i.count("0")
+            newdp={}
+            for key,value in dp.items():
+                prevzero=key[0]
+                prevone=key[1]
+                currzero=prevzero+zerocount
+                currone=prevone+onecount 
+                if(currzero<=m and currone<=n):
+                    #need to add to dp 
+                    if((currzero,currone) not in dp):
+                        newdp[(currzero,currone)]=value+1 
+                    elif dp[(currzero,currone)]<value+1: 
+                        newdp[(currzero,currone)]=value+1
+            dp.update(newdp)
+
+        return max(dp.values())
+        
