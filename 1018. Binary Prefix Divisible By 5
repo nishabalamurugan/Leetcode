@@ -1,0 +1,14 @@
+class Solution:
+    def prefixesDivBy5(self, nums: List[int]) -> List[bool]:
+        res=[]
+        temp=""
+        for i in nums:
+            temp+=str(i) 
+            decimal=int(temp,2)
+            #print(decimal)
+            if(decimal%10==0 or decimal%10==5):
+                res.append(True)
+            else:
+                res.append(False)
+        return res;
+        
