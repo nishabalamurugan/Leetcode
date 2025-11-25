@@ -1,0 +1,11 @@
+class Solution:
+    def smallestRepunitDivByK(self, k: int) -> int:
+        ctr=1 
+        temp=0
+        while ctr<=k:
+            temp=(temp*10+1)%k 
+            if(temp==0):
+                return ctr;
+            ctr+=1
+        return -1
+        
