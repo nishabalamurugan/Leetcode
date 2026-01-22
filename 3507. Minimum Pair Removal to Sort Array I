@@ -1,0 +1,18 @@
+class Solution:
+    def minimumPairRemoval(self, nums: List[int]) -> int:
+        res=0
+        while(nums!=sorted(nums)):
+            minsum=float(inf)
+            pos=-1
+            for i in range(len(nums)-1):
+                curr=nums[i]+nums[i+1]
+                if(curr<minsum):
+                    minsum=curr
+                    pos=i              
+            nums[pos]=minsum
+            nums.pop(pos+1)
+            print(minsum,pos,nums)
+            #break
+            res+=1
+        return res
+        
