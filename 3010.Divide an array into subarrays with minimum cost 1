@@ -1,0 +1,13 @@
+class Solution:
+    def minimumCost(self, nums: List[int]) -> int:
+        res=nums[0]
+        a=nums.pop(0)
+        nums.sort()
+        res+=nums[0]
+        b=nums.pop(0)
+        nums.sort()
+        res+=nums[0]
+        c=nums.pop(0)
+        print(nums,a,b,c)
+        return res
+        
