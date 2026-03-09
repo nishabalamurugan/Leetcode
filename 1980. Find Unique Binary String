@@ -1,0 +1,15 @@
+class Solution:
+    def findDifferentBinaryString(self, nums: List[str]) -> str:
+        bit_length=len(nums[0])
+        lis=[0]*(2**bit_length)
+        k=''
+        for num in nums:
+            decimal=int(num,2)
+            lis[decimal]=1 
+        for i in range(len(lis)):
+            if(lis[i]==0):
+                print(i)
+                k=bin(i).replace('0b','')
+                break
+        diff=abs(len(k)-bit_length)
+        return ('0'*diff)+k
