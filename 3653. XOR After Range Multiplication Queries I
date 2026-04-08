@@ -1,0 +1,13 @@
+from functools import reduce
+from operator import xor
+class Solution:
+    def xorAfterQueries(self, nums: List[int], queries: List[List[int]]) -> int:
+        for i in range(len(queries)):
+            st=queries[i][0]
+            end=queries[i][1]
+            while(st<=end):
+                nums[st]=(nums[st]*queries[i][-1])%1000000007
+                st+=queries[i][2] 
+        k=reduce(xor,nums)  
+        #print(nums,k)     
+        return k
