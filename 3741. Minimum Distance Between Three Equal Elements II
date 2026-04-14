@@ -1,0 +1,20 @@
+class Solution:
+    def minimumDistance(self, nums: List[int]) -> int:
+        positions=defaultdict(list)
+        ans=float('inf')
+        isfound=False
+        for i,ele in enumerate(nums):
+            positions[ele].append(i)
+        #print(positions)
+        for lst in positions.values():
+            #print(lst)
+            if(len(lst)>=3):
+                for i in range(len(lst)-2):
+                    dist=2*(lst[i+2]-lst[i])
+                    ans=min(ans,dist)
+                    isfound=True
+        if isfound:
+            return ans
+        else:
+            return -1
+        
