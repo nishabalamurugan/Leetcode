@@ -1,0 +1,4 @@
+class Solution:
+    def separateDigits(self, nums: List[int]) -> List[int]:
+        return [int(dig) for num in nums for dig in str(num)]
+        
