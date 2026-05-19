@@ -1,0 +1,9 @@
+class Solution:
+    def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
+        a=set(nums1)
+        b=set(nums2)
+        k=sorted(list(a.intersection(b)))
+        if len(k)>0:
+            return k[0]
+        return -1
+        
