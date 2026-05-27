@@ -1,0 +1,15 @@
+class Solution:
+    def numberOfSpecialChars(self, word: str) -> int:
+        unique=list(set(word))
+        #print(unique)
+        word_list=[w for w in word]
+        res=0
+        for let in unique:
+            if let.islower() and let.lower() in word and let.upper() in word:
+                upper_occurrence=word_list.index(let.upper())
+                lower_occurrence=len(word)-word_list[::-1].index(let)-1
+                #print(let,upper_occurrence,lower_occurrence)
+                if upper_occurrence>lower_occurrence:
+                    res+=1
+        return res
+        
