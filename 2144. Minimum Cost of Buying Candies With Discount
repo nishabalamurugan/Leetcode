@@ -1,0 +1,15 @@
+class Solution:
+    def minimumCost(self, cost: List[int]) -> int:
+        cost.sort()
+        cost=cost[::-1]
+        res=0 
+        count=0
+        for i in range(len(cost)):
+            count+=1
+            if(count==3):
+                count=0
+                continue 
+            else:
+                res+=cost[i]
+        return res
+        
