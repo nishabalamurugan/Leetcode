@@ -1,0 +1,23 @@
+class Solution:
+    def leftRightDifference(self, nums: List[int]) -> List[int]:
+        res=[]
+        s=0
+        k=0
+        b=len(nums)-1
+        ls=[0 for i in range(len(nums))]
+        rs=[0 for i in range(len(nums))]
+        for i in range(len(nums)):
+            if(i==0):
+                ls[i]=0
+                k=sum(nums)-nums[i]
+                rs[i]=k
+            else:
+                ls[i]=s
+                k-=nums[i]
+                rs[i]=k
+            s+=nums[i]
+            
+        print(ls)
+        print(rs)
+        return [abs(ls[i]-rs[i]) for i in range(len(ls)) ]
+        
