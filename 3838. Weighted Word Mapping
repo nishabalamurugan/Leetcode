@@ -1,0 +1,9 @@
+class Solution:
+    def mapWordWeights(self, words: List[str], weights: List[int]) -> str:
+        alphabet=[chr(97+i) for i in range(26)]
+        string=""
+        for word in words:
+            res=[weights[alphabet.index(let)] for let in word]
+            string+=alphabet[-1*(sum(res)%26)-1]
+        return string
+        
