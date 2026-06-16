@@ -1,0 +1,14 @@
+class Solution:
+    def processStr(self, s: str) -> str:
+        res=[]
+        for i in s:
+            if i.isalpha():
+                res.append(i)
+            elif i=='*' and len(res)>0:
+                res.pop()
+            elif i=='#':
+                res.extend(res)
+            elif i=='%':
+                res=res[::-1]
+            #print(res)
+        return "".join(res)
