@@ -1,0 +1,5 @@
+class Solution:
+    def numOfStrings(self, patterns: List[str], word: str) -> int:
+        count=[pat for pat in patterns if pat in word]
+        return len(count)
+        
