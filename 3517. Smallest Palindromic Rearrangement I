@@ -1,0 +1,16 @@
+class Solution:
+    def smallestPalindrome(self, s: str) -> str:
+        slist=list(s)
+        slist=sorted(slist)
+        setslist=sorted(list(set(slist)))
+        first=''
+        middle=''
+        for i in setslist:
+            half=slist.count(i)//2 
+            first+=i*half 
+            if slist.count(i)%2:
+                middle=i
+        last=first[::-1]
+        print(first,middle,last)
+        return first+middle+last
+        
