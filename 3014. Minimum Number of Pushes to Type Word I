@@ -1,0 +1,17 @@
+class Solution:
+    def minimumPushes(self, word: str) -> int:
+        split=[]
+        temp=''
+        cost=0
+        factor=1
+        for i in range(len(word)):
+            if(len(temp)<8):
+                temp+=word[i]
+            else:
+                split.append(temp)
+                cost+=(8*factor)
+                factor+=1
+                temp=word[i]
+        cost+=(len(temp)*factor)
+        print(cost)
+        return cost
