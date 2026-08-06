@@ -1,0 +1,15 @@
+class Solution:
+    def smallestNumber(self, n: int, t: int) -> int:
+        for i in range(n,10000):
+            num=i
+            prod=1 
+            while(num>0):
+                ud=num%10 
+                prod*=ud
+                num//=10 
+            #print(prod,i)
+            if prod%t==0:
+                return i
+
+        return 0
+        
